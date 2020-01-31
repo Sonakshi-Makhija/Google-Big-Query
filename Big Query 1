@@ -1,0 +1,172 @@
+BIGQUERY QUERIES
+
+Q1. What are the various indices of different countries in the year 1984?
+A1. Usng the SQL 'WHERE' command :
+ SELECT * FROM `bigquery-public-data.census_bureau_international.mortality_life_expectancy`WHERE year=1984
+ OUTPUT:
+country_code	country_name	year	infant_mortality	infant_mortality_male	infant_mortality_female	life_expectancy	life_expectancy_male	life_expectancy_female	mortality_rate_under5	mortality_rate_under5_male	mortality_rate_under5_female	mortality_rate_1to4	mortality_rate_1to4_male	mortality_rate_1to4_female
+AA	Aruba	1984	22.55	26.1	19.06	72.91	69.24	76.51	25.34	29.44	21.31	2.85	3.43	2.29
+AF	Afghanistan	1984	187.29	194.89	179.31	39.34	38.92	39.78	280.29	283.38	277.05	114.43	109.91	119.09
+AO	Angola	1984	143.43	152.11	134.49	47.42	45.86	49.03	243.24	251.27	234.96	116.52	116.95	116.08
+AR	Argentina	1984	29.23	32.38	25.99	70.62	67.21	74.12	34.4	37.8	30.9	5.32	5.6	5.04
+AV	Anguilla	1984	12.76	16.47	8.95	72.94	70.27	75.7	16.14	21.17	10.98	3.43	4.78	2.05
+BA	Bahrain	1984	33.17	38.18	28.07	68.89	66.83	70.99	40.52	46.39	34.54	7.6	8.54	6.66
+BB	Barbados	1984	16.92	17.3	16.51	73.38	71.57	75.35	20.33	20.68	19.95	3.47	3.44	3.5
+BC	Botswana	1984	53.94	62.86	44.75	61.83	58.86	64.89	77.38	89.74	64.64	24.77	28.68	20.82
+BF	"Bahamas, The"	1984	26.98	26.4	27.58	65.54	62.53	68.65	32.5	31.65	33.38	5.67	5.39	5.96
+BG	Bangladesh	1984	134.54	142.1	126.69	51.27	52.07	50.43	206.12	205.75	206.5	82.71	74.19	91.39
+BH	Belize	1984	41.3	46.04	36.33	66.67	64.87	68.56	52.7	58.03	47.12	11.9	12.57	11.2
+BM	Burma	1984	94.27	106.41	81.39	55.42	53.19	57.78	124.73	137.17	111.53	33.63	34.42	32.81
+BN	Benin	1984	128.67	136.47	120.49	46.93	45.89	48.02	205.53	211.96	198.79	88.21	87.42	89.03
+
+
+
+
+Q2. What is the minimum infant mortality rate?
+A2.  Usng the SQL 'MIN' command : 
+SELECT MIN(infant_mortality)FROM `bigquery-public-data.census_bureau_international.mortality_life_expectancy`
+OUTPUT:
+f0_
+1.15
+
+
+Q3. What is the maximum life expectancy?
+A3.  Usng the SQL 'MAX' command :
+SELECT MAX(life_expectancy)FROM `bigquery-public-data.census_bureau_international.mortality_life_expectancy` 
+OUTPUT:
+f0_
+91.58
+  
+
+Q4. What are the various indices between the years 1990 and 2000?
+A4. Usng the SQL 'BETWEEN' command : 
+SELECT * FROM `bigquery-public-data.census_bureau_international.mortality_life_expectancy` 
+WHERE year
+BETWEEN 1990 AND 2000
+OUTPUT:
+1	AA	Aruba	1990	21.2	26.1	16.38	72.97	69.51	76.36	24.1	29.87	18.43	2.97	3.87	2.08	
+2	AA	Aruba	1991	20.99	26.1	15.97	72.97	69.55	76.33	23.92	29.94	18.0	2.99	3.94	2.06	
+3	AA	Aruba	1992	20.79	26.11	15.57	72.97	69.59	76.29	23.74	30.02	17.57	3.01	4.01	2.03	
+4	AA	Aruba	1993	20.81	26.11	15.18	72.84	69.63	76.26	23.82	30.1	17.15	3.07	4.1	2.0	
+5	AA	Aruba	1994	20.59	26.11	14.8	72.87	69.66	76.22	23.62	30.18	16.74	3.09	4.18	1.97	
+6	AA	Aruba	1995	20.49	26.11	14.43	72.82	69.7	76.18	23.56	30.26	16.34	3.14	4.26	1.94	
+7	AA	Aruba	1996	20.2	26.11	14.07	72.88	69.73	76.14	23.28	30.35	15.95	3.15	4.35	1.91	
+8	AA	Aruba	1997	20.28	26.11	13.72	72.75	69.77	76.1	23.44	30.43	15.57	3.22	4.44	1.88	
+9	AA	Aruba	1998	19.81	26.11	13.37	72.9	69.8	76.06	22.94	30.52	15.2	3.2	4.53	1.85	
+10	AA	Aruba	1999	19.64	26.11	13.04	72.89	69.83	76.01	22.8	30.61	14.84	3.23	4.62	1.82	
+11	AA	Aruba	2000	19.48	26.11	12.71	72.88	69.86	75.96	22.68	30.7	14.49	3.26	4.71	1.8	
+12	AC	Antigua and Barbuda	1991	22.5	26.13	18.68	72.31	70.5	74.21	27.39	31.68	22.87	5.0	5.7	4.27	
+13	AC	Antigua and Barbuda	1992	22.29	25.89	18.52	72.4	70.59	74.3	27.13						
+
+
+Q5. Female infant mortality rate greater than 10?
+A5. Using the SQL 'GREATER THAN' command:
+SELECT * FROM `bigquery-public-data.census_bureau_international.mortality_life_expectancy`
+WHERE infant_mortality_female > 10
+OUTPUT:
+AA	Aruba	1981	23.3	26.09	20.56	72.86	69.09	76.56	26.05
+AA	Aruba	1982	23.04	26.1	20.05	72.88	69.14	76.55	25.79
+AA	Aruba	1983	22.79	26.1	19.55	72.9	69.19	76.53	25.56
+AA	Aruba	1984	22.55	26.1	19.06	72.91	69.24	76.51	25.34
+AA	Aruba	1985	22.31	26.1	18.58	72.92	69.29	76.49	25.12
+AA	Aruba	1986	22.07	26.1	18.12	72.94	69.34	76.47	24.89
+
+
+Q6. What is the average value of male infant mortality before the year 2000?
+A6. Using SQL 'AVG' Command:
+SELECT AVG(infant_mortality_male) FROM `bigquery-public-data.census_bureau_international.mortality_life_expectancy` 
+WHERE year < 2000
+OUTPUT:
+f0_
+66.68070303383888
+
+
+Q7. Mortality rate greater than 2.5 of the children under 5 after the year 2000?
+A7. Using SQL 'AND' command:
+SELECT year, mortality_rate_under5
+FROM `bigquery-public-data.census_bureau_international.mortality_life_expectancy`
+WHERE year >2000 AND mortality_rate_under5 >2.5
+OUTPUT:
+year	mortality_rate_under5
+2001	21.72
+2002	20.81
+2003	19.93
+2004	19.08
+2005	18.28
+2006	17.66
+2007	17.06
+2008	16.48
+2009	15.92
+2010	15.39
+2011	14.9
+2012	14.42
+2013	13.95
+2014	13.51
+2015	13.07
+2016	12.69
+2017	12.31
+2018	11.93
+2019	11.57
+2020	11.23
+
+
+Q8. Find a connection between Infant mortality and Midyear Population?
+A8. Using SQL INNER JOIN command:
+SELECT infant_mortality, midyear_population
+FROM `bigquery-public-data.census_bureau_international.mortality_life_expectancy` 
+INNER JOIN `bigquery-public-data.census_bureau_international.midyear_population_5yr_age_sex`
+ON `bigquery-public-data.census_bureau_international.mortality_life_expectancy` .infant_mortality = `bigquery-public-data.census_bureau_international.midyear_population_5yr_age_sex`.midyear_population
+OUTPUT:
+Row	infant_mortality	midyear_population	
+1      	2.0                       	2	
+2	      2.0                        	2	
+3	      2.0	                        2	
+4	      2.0	                        2	
+5	      2.0	                        2	
+6	      2.0	                        2	
+7	      2.0	                        2	
+8	      2.0	                        2	
+9	      2.0	                        2	
+10	    2.0	                        2	
+
+
+Q9. How Much infant mortality coincides with Midyear population?
+A9. Using SQL FULL OUTER JOINcommand:
+SELECT infant_mortality, midyear_population
+FROM `bigquery-public-data.census_bureau_international.mortality_life_expectancy` 
+LEFT OUTER JOIN `bigquery-public-data.census_bureau_international.midyear_population_5yr_age_sex`
+ON `bigquery-public-data.census_bureau_international.mortality_life_expectancy` .infant_mortality = `bigquery-public-data.census_bureau_international.midyear_population_5yr_age_sex`.midyear_population
+
+OUTPUT:
+Row	infant_mortality	midyear_population
+1          	23.3	          null
+2	          23.04         	null
+3	          22.79         	null
+4	          22.55          	null
+5	          22.31	          null
+6	          22.07	          null
+7	          21.85         	null
+8	          21.62         	null
+9          	21.41         	null
+10	        21.2	          null
+
+
+Q10. How much overall Infant mortality goes along with midyear population?
+A10. Using SQL FULL OUTER JOIN command:
+SELECT infant_mortality, midyear_population
+FROM `bigquery-public-data.census_bureau_international.mortality_life_expectancy` 
+FULL OUTER JOIN `bigquery-public-data.census_bureau_international.midyear_population_5yr_age_sex`
+ON `bigquery-public-data.census_bureau_international.mortality_life_expectancy` .infant_mortality = `bigquery-public-data.census_bureau_international.midyear_population_5yr_age_sex`.midyear_population
+
+OUTPUT:
+Row	infant_mortality	midyear_population
+1	            18.44       	null
+2	            12.76	        null
+3	            12.59	        null
+4           	6.68	        null
+5	            131.28      	null
+6            	130.21       	null
+7           	26.01	        null
+8           	11.71       	null
+9	            5.63	        null
+10	          5.63	        null
